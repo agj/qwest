@@ -144,7 +144,8 @@
 			try{
 				// Verify status code
 				// --- https://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
-				if('status' in xhr && !/^2|1223/.test(xhr.status)){
+				// --- http://stackoverflow.com/questions/18391481/xmlhttprequest-in-nodewebkit-status-0
+				if('status' in xhr && !/^2|1223|^0$/.test(xhr.status)){
 					throw xhr.status+' ('+xhr.statusText+')';
 				}
 				// Init
